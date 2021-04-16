@@ -1,0 +1,32 @@
+@using MusicOrganizer.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Artist</title>
+  </head>
+  <body>
+    <h1 style="text-align: center;">@Model.Name</h1>
+    <p></p>
+    <p>Album List:</p>
+    <ul>
+      @if (Model.Albums.Count != 0)
+      {
+        @foreach (Album album in Model.Albums)
+        {
+          <li><a href="/artist/@Model.Id/album/@album.Id">@album.Title</a></li>
+        }
+      }
+      else 
+      {
+        <li>No albums yet in this collection.</li>
+      }
+    </ul>
+    <p><a href="/album/new">Add an Album</a></p>
+
+    <p><a href="/album">View Albums</a></p>
+    <p><a href="/artist">View Artists</a></p>
+    <p><a href="/">HomePage</a></p>
+  </body>
+</html>

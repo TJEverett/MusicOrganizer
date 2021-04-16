@@ -1,0 +1,42 @@
+@using MusicOrganizer.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>New Album</title>
+  </head>
+  <body>
+    <h1 style="text-align: center;">New Album</h1>
+    <p></p>
+
+    @if (Model.Count == 0)
+    {
+      <p>Unable to add a new album until an artist is added.</p>
+      <p><a href="/artist/new">Add an Artist</a></p>
+    }
+    else
+    {
+      <form action="/album" method="POST">
+        <label for="title">Album Title:</label>
+        <input type="text" name="title" id="title" placeholder="TITLE">
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" id="genre" placeholder="GENRE">
+        <label for="songs">How many songs does the album have?</label>
+        <input type="number" name="songs" id="songs" min="1" step="1" placeholder="SONGS #">
+        <label for="artist">Artist:</label>
+        <select name="artist" id="artist">
+          @foreach (Artist artist in Model)
+          {
+            <option value="@artist.Id">@artist.Name</option>
+          }
+        </select>
+        <button type="submit">Save New Album</button>
+      </form>
+    }
+
+    <p><a href="/album">View Albums</a></p>
+    <p><a href="/artist">View Artists</a></p>
+    <p><a href="/">HomePage</a></p>
+  </body>
+</html>

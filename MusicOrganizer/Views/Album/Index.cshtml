@@ -1,0 +1,22 @@
+@using MusicOrganizer.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+  </head>
+  <body>
+    <ul>
+      @foreach (Album album in Model)
+      {
+        <li><a href="/artist/@album.ArtistId/album/@album.Id">@album.Title</a></li>
+      }
+    </ul>
+    <p><a href="/album/new">Add an Album</a></p>
+
+    <p><a href="/album">View Albums</a></p>
+    <p><a href="/artist">View Artists</a></p>
+    <p><a href="/">HomePage</a></p>
+  </body>
+</html>

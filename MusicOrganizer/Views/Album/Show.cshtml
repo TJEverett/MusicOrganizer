@@ -1,0 +1,21 @@
+@using MusicOrganizer.Models;
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Album Details</title>
+  </head>
+  <body>
+    <h1 style="text-align: center;">Album Details</h1>
+
+    <p>Artist Name: @Model["artist"].Name</p>
+    <p>Album Title: @Model["album"].Title</p>
+    <p>Album Genre: @Model["album"].Genre</p>
+    <p>Song Count: @Model["album"].NumberSongs</p>
+
+    <p><a href="/album">View Albums</a></p>
+    <p><a href="/artist">View Artists</a></p>
+    <p><a href="/">HomePage</a></p>
+  </body>
+</html>
